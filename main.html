@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="Main.css" />
+    <script src="showUniversity.js"></script>
+    <script src="displayValues.js"></script>
+  </head>
+  <body>
+    <!--All Dropdowns-->
+    <div class="labels">
+      <div class="label-item">
+        <label for="gender">Gender:</label>
+        <select
+          id="gender"
+          name="gender"
+          data-associated-input="otherGenderInput"
+        >
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+          <option value="none" selected>Please select your Gender</option>
+        </select>
+      </div>
+
+      <div class="designForOther" id="otherGenderInput" style="display: none">
+        <label for="otherGender">Please specify:</label>
+        <input
+          placeholder="Prefer not to say"
+          type="text"
+          id="gender-input"
+          name="otherGender"
+          class="input-field"
+          required
+          value="Click here"
+          onfocus="clearText(this)"
+        />
+      </div>
+      <script>
+        const genderInputField = document.getElementById("gender-input");
+        genderInputField.addEventListener("focus", clearText);
+        genderInputField.addEventListener("blur", restoreRequiredValue);
+
+        function clearText(event) {
+          if (event.target.value === event.target.getAttribute("value")) {
+            event.target.value = "";
+          }
+        }
+
+        function restoreRequiredValue(event) {
+          if (event.target.value === "") {
+            event.target.value = "Prefer not to say";
+          }
+        }
+      </script>
+
+      <div class="label-item">
+        <label for="achievement">High School Achievement:</label>
+        <select id="achievement" name="achievement">
+          <option value="whhonor">With Highest Honor</option>
+          <option value="hhonor">With High Honor</option>
+          <option value="honor">With Honor</option>
+          <option value="Nhonor">None</option>
+          <option value="none" selected>
+            Please select your High School Achievement
+          </option>
+        </select>
+      </div>
+
+      <div class="label-item">
+        <label for="health-status">Health Status:</label>
+        <select id="health-status" name="health-status">
+          <option value="excellent">Excellent</option>
+          <option value="good">Good</option>
+          <option value="fair">Fair</option>
+          <option value="poor">Poor</option>
+          <option value="critical">Critical</option>
+          <option value="none" selected>
+            Please select your Health Status
+          </option>
+        </select>
+      </div>
+
+      <div class="label-item">
+        <label for="socioeconomic-status">Socioeconomic Status:</label>
+        <select id="socioeconomic-status" name="socioeconomic-status">
+          <option value="Upper">Upper</option>
+          <option value="Upper Middle">Upper Middle</option>
+          <option value="Lower Middle">Lower Middle</option>
+          <option value="Upper Lower">Upper Lower</option>
+          <option value="Lower">Lower</option>
+          <option value="none" selected>
+            Please select your Socioeconomic Status
+          </option>
+        </select>
+      </div>
+
+      <div class="label-item">
+        <label for="shs-strand">Senior High School Strand:</label>
+        <select id="shs-strand" name="shs-strand">
+          <option value="ABM">Accountancy And Business Management (ABM)</option>
+          <option value="STEM">
+            Science Technology Engineering and Mathematics (STEM)
+          </option>
+          <option value="HUMMS">Humanities and Social Science (HUMMS)</option>
+          <option value="GAS">General Academic Strand (GAS)</option>
+          <option value="TVL-AF">
+            Technical Vocational Livelihood - Agricultural Fishery (TVL-AF)
+          </option>
+          <option value="TVL-HE">
+            Technical Vocational Livelihood - Home Economics (TVL-HE)
+          </option>
+          <option value="TVL-ICT">
+            Technical Vocational Livelihood - Information and Communication
+            Technology (TVL-ICT)
+          </option>
+          <option value="none" selected>Please select your Strand</option>
+        </select>
+      </div>
+
+      <div class="label-item">
+        <label for="peer-influence">Peer Influence:</label>
+        <select id="peer-influence" name="peer-influence">
+          <option value="positive">Positive</option>
+          <option value="neutral">Neutral</option>
+          <option value="negative">Negative</option>
+          <option value="none" selected>Please your Peer Influence</option>
+        </select>
+      </div>
+
+      <div class="label-item">
+        <label for="location">Location:</label>
+        <select id="location" name="location" required>
+          <option value="Albay">Albay</option>
+          <option value="Camarines_Sur">Camarines Sur</option>
+          <option value="Camarines_Norte">Camarines Norte</option>
+          <option value="Catanduanes">Catanduanes</option>
+          <option value="Masbate">Masbate</option>
+          <option value="Sorsogon">Sorsogon</option>
+          <option value="none" selected>Please select your Location</option>
+        </select>
+      </div>
+
+      <div class="label-item">
+        <label for="career-aspiration">Career Aspiration:</label>
+        <select
+          id="career-aspiration"
+          name="career-aspiration"
+          data-associated-input="otherCareerInput"
+        >
+          <option value="engineering">Engineering</option>
+          <option value="education">Education</option>
+          <option value="technology">Technology</option>
+          <option value="business">Business</option>
+          <option value="arts">Arts</option>
+          <option value="medicine">Medicine</option>
+          <option value="others">Others</option>
+          <option value="none" selected>Select your Career Aspiration</option>
+        </select>
+      </div>
+
+      <div class="designForOther" id="otherCareerInput" style="display: none">
+        <label for="otherCareer">Please specify:</label>
+        <input
+          placeholder="Not Career Aspiration?"
+          type="text"
+          id="career-input"
+          name="career-input"
+          class="input-field"
+          required
+          value="Click here"
+          onfocus="clearText(this)"
+        />
+      </div>
+
+      <script>
+        const careerInputField = document.getElementById("career-input");
+
+        careerInputField.addEventListener("focus", clearText);
+        careerInputField.addEventListener("blur", restoreRequiredValue);
+
+        function clearText(event) {
+          if (event.target.value === event.target.getAttribute("value")) {
+            event.target.value = "";
+          }
+        }
+
+        function restoreRequiredValue(event) {
+          if (event.target.value === "") {
+            event.target.value = "None";
+          }
+        }
+      </script>
+
+      <div class="label-item">
+        <label for="academic-term">Academic Term:</label>
+        <select id="academic-term" name="academic-term">
+          <option value="2years">2 years</option>
+          <option value="3years">3 years</option>
+          <option value="4years">4 years</option>
+          <option value="5years">5 years</option>
+          <option value="none" selected>Select your Academic Term</option>
+        </select>
+      </div>
+
+      <div class="label-item">
+        <label for="learning-style-preference"
+          >Learning Style Preference:</label
+        >
+        <select id="learning-style-preference" name="learning-style-preference">
+          <option value="visual">Visual</option>
+          <option value="auditory">Auditory</option>
+          <option value="reading-writing">Reading/Writing</option>
+          <option value="kinesthetic">Kinesthetic</option>
+          <option value="none" selected>
+            Select your Learning Style Preference
+          </option>
+        </select>
+      </div>
+
+      <div class="label-item">
+        <label for="skills-hobbies">Skills/Hobbies:</label>
+        <select
+          id="skills-hobbies"
+          name="skills-hobbies"
+          data-associated-input="otherSkillsInput"
+        >
+          <option value="technical-skills">
+            Technical skills (e.g., Programming, Design)
+          </option>
+          <option value="creative-skills">
+            Creative skills (e.g., Painting, Writing)
+          </option>
+          <option value="sports">Sports or Physical activities</option>
+          <option value="musical-talents">Musical talents</option>
+          \
+          <option value="communication-skills">Communication Skills</option>
+          <option value="leadership-abilities">Leadership Abilities</option>
+          <option value="others">Others</option>
+          <option value="none" selected>Select your Skills/Hobbies</option>
+        </select>
+      </div>
+
+      <div class="designForOther" id="otherSkillsInput" style="display: none">
+        <label for="otherSkills">Please specify:</label>
+        <input
+          placeholder="No skills or Hobbies?"
+          type="text"
+          id="skills-input"
+          name="otherSkills"
+          class="input-field"
+          required
+          value="Click here"
+          onfocus="clearText(this)"
+        />
+      </div>
+      <script>
+        const skillsInputField = document.getElementById("skills-input");
+
+        skillsInputField.addEventListener("focus", clearText);
+        skillsInputField.addEventListener("blur", restoreRequiredValue);
+
+        function clearText(event) {
+          if (event.target.value === event.target.getAttribute("value")) {
+            event.target.value = "";
+          }
+        }
+
+        function restoreRequiredValue(event) {
+          if (event.target.value === "") {
+            event.target.value = "None";
+          }
+        }
+      </script>
+
+      <div class="label-item">
+        <label for="financial-aid-or-scholarship"
+          >Financial Aid or Scholarship:</label
+        >
+        <select
+          id="financial-aid-or-scholarship"
+          name="financial-aid-or-scholarship"
+        >
+          <option value="full">Full Scholarship</option>
+          <option value="partial">Partial Scholarship</option>
+          <option value="need">Need - based Financial Aid</option>
+          <option value="merit">Merit - based Financial Aid</option>
+          <option value="none" selected>
+            Select your Financial Aid or Scholarship
+          </option>
+        </select>
+      </div>
+
+      <div class="label-item">
+        <label for="industry-relevance">Industry Relevance:</label>
+        <select id="industry-relevance" name="industry-relevance">
+          <option value="high">High demand and growth</option>
+          <option value="stable">Stable but competitive</option>
+          <option value="niche">Niche or specialized</option>
+          <option value="none" selected>Select your Industry Relavance</option>
+        </select>
+      </div>
+      <!--End of Dropdowns here-->
+
+      <script>
+        //selected "Other" option in dropdown menu 
+
+        //for Gender dropdown
+        const genderSelect = document.getElementById("gender");
+        const otherGenderInput = document.getElementById("otherGenderInput");
+        const otherGenderField = document.getElementById("otherGender");
+
+        genderSelect.addEventListener("change", function () {
+          if (genderSelect.value === "other") {
+            otherGenderInput.style.display = "block";
+          } else {
+            otherGenderInput.style.display = "none";
+          }
+        });
+        // for Career Aspiration Dropdown
+        const careerSelect = document.getElementById("career-aspiration");
+        const otherCareerInput = document.getElementById("otherCareerInput");
+        const otherCareerField = document.getElementById("otherCareer");
+
+        careerSelect.addEventListener("change", function () {
+          if (careerSelect.value === "others") {
+            otherCareerInput.style.display = "block";
+          } else {
+            otherCareerInput.style.display = "none";
+          }
+        });
+        // for Skills and hobbies dropdown
+        const skillsSelect = document.getElementById("skills-hobbies");
+        const otherSkillsInput = document.getElementById("otherSkillsInput");
+        const otherSkillsField = document.getElementById("otherSkills");
+
+        skillsSelect.addEventListener("change", function () {
+          if (skillsSelect.value === "others") {
+            otherSkillsInput.style.display = "block";
+          } else {
+            otherSkillsInput.style.display = "none";
+          }
+        });
+      </script>
+
+      <script> //Hide all none Value opstions
+        const dropdownIds = [
+          "gender",
+          "achievement",
+          "health-status",
+          "socioeconomic-status",
+          "shs-strand",
+          "peer-influence",
+          "location",
+          "career-aspiration",
+          "academic-term",
+          "learning-style-preference",
+          "skills-hobbies",
+          "financial-aid-or-scholarship",
+          "industry-relevance",
+        ];
+
+        dropdownIds.forEach((dropdownId) => {
+          const dropdown = document.getElementById(dropdownId);
+          dropdown.addEventListener("click", hideOption);
+        });
+
+        function hideOption(event) {
+          const dropdown = event.target;
+          const placeholderOption = dropdown.querySelector(
+            'option[value="none"]'
+          );
+          placeholderOption.style.display = "none";
+          dropdown.removeEventListener("click", hideOption);
+        }
+      </script>
+
+
+    </div>
+    <!--Display the courses Recommended in modal-->
+    <div class="modal" id="course-modal">
+      <h2>Course Recommendations</h2>
+      <div class="location-display" id="location-display"></div>
+      <div class="universities-list" id="universities-list">
+        <select
+          onclick="showUniversities()"
+          id="universities-dropdown"
+        ></select>
+      </div>
+      <div class="course-list" id="course-list"></div>
+      <button class="close-button" onclick="closeModal()">Close</button>
+    </div>
+
+    <!--Submit button-->
+    <button
+      type="submit"
+      class="submit-button"
+      onclick="displaySelectedValues()"
+    >
+      Submit
+    </button>
+  </body>
+</html>

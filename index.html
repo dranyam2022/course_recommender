@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--<div id="birdsContainer"><image src="https://clipart-library.com/img1/1663317.gif" height="100px" draggable="false"></div>-->
+    <h2 id="welcome">Welcome to Course Recommender System!</h2>
+    <p class="paragraph">
+      Are you a fresh graduate in Senior High School and still confused on what
+      course do you want to take in college?. Worry no more! Our System will
+      help you to find the course that fit to you!
+    </p>
+    <div class="container">
+      <img src="bg.jpeg" alt="Background Image" class="image" />
+    </div>
+    <button class="getstarted" id="getStartedButton">Get Started</button>
+    
+    <script>
+      document
+        .getElementById("getStartedButton")
+        .addEventListener("click", function () {
+          window.location.href = "main.html";
+        });
+    </script>
+    
+  </body>
+</html>

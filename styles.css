@@ -1,0 +1,106 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  position: relative;
+  top: -200px;
+  bottom: 0;
+  right: 0;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/*@keyframes birdsFlying {
+  0% {
+      left: 100vw;
+  }
+  100% {
+      left: -200vw;
+  }
+}
+
+#birdsContainer {
+  position: fixed;
+  top: 10vw;
+  animation-name: birdsFlying;
+  animation-delay: 0s;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  z-index: -1;
+}*/
+
+#welcome {
+  color: rgb(0, 0, 0);
+  text-shadow: 3px 3px 5px #f3da95;
+  position: relative;
+  text-align: center;
+  height: 30%;
+  font-size: 40px;
+  font-family: "Courier New", Courier, monospace;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding-top: 10vh;
+  margin: 3px 0 3px 0;
+}
+
+.paragraph {
+  position: relative;
+  display: block;
+  color: #000000;
+  text-shadow: 3px 3px 6px #f3da95;
+  position: fixed;
+  text-align: center;
+  height: 40%;
+  font-size: 22px;
+  font-family: bold;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding-top: 25vh;
+  margin: 0;
+}
+
+.getstarted {
+  margin: 0 auto;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+@media (max-height: 720px) {
+  #welcome {
+    font-size: 30px;
+  }
+  .paragraph {
+    font-size: 15px;
+    padding-block: max(25vh, 1rem);
+  }
+}
